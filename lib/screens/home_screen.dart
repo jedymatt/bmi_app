@@ -1,6 +1,5 @@
-import 'dart:ui';
-
 import 'package:bmi_app/core/constants.dart';
+import 'package:bmi_app/core/enums.dart';
 import 'package:bmi_app/widgets/rounded_card.dart';
 import 'package:bmi_app/widgets/text_icon.dart';
 import 'package:bmi_app/widgets/value_selector.dart';
