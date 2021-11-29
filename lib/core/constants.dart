@@ -8,8 +8,3 @@ const kLabelColor = Color(0xffffffff);
 const kLargeFontSize = 36.0;
 const kScaffoldBackgroundColor = Color(0xff0a0d22);
 const kUnselectedLabelColor = Color(0xff8d8e98);
-
-enum Gender {
-  male,
-  female,
-}
