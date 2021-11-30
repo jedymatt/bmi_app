@@ -24,7 +24,7 @@ class _AppState extends State<App> {
         backgroundColor: kScaffoldBackgroundColor,
         appBarTheme: AppBarTheme.of(context).copyWith(
           backgroundColor: kScaffoldBackgroundColor,
-          elevation: 10.0,
+          elevation: 15.0,
           toolbarHeight: kToolbarHeight * 1.10,
         ),
       ),

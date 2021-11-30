@@ -1,5 +1,7 @@
 import 'package:bmi_app/core/constants.dart';
 import 'package:bmi_app/core/enums.dart';
+import 'package:bmi_app/screens/result_screen.dart';
+import 'package:bmi_app/widgets/bottom_button.dart';
 import 'package:bmi_app/widgets/rounded_card.dart';
 import 'package:bmi_app/widgets/text_icon.dart';
 import 'package:bmi_app/widgets/value_selector.dart';
@@ -32,17 +34,15 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.symmetric(
-                vertical: 20.0,
-                horizontal: 25.0,
-              ),
+              padding: const EdgeInsets.all(25.0),
               child: Column(
                 children: [
                   Expanded(
+                    flex: 5,
                     child: Row(
                       children: [
                         Expanded(
-                          child: RoundedCar(
+                          child: RoundedCard(
                             onTap: () {
                               setState(() {
                                 selectedGender = Gender.male;
@@ -65,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           width: 5.0,
                         ),
                         Expanded(
-                          child: RoundedCar(
+                          child: RoundedCard(
                             onTap: () {
                               setState(() {
                                 selectedGender = Gender.female;
@@ -91,7 +91,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: 20.0,
                   ),
                   Expanded(
-                    child: RoundedCar(
+                    flex: 6,
+                    child: RoundedCard(
                       backgroundColor: kDefaultBoxColor,
                       child: Padding(
                         padding: const EdgeInsets.all(20.0),
@@ -114,10 +115,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: 20.0,
                   ),
                   Expanded(
+                    flex: 6,
                     child: Row(
                       children: [
                         Expanded(
-                          child: RoundedCar(
+                          child: RoundedCard(
                             backgroundColor: kDefaultBoxColor,
                             child: Padding(
                               padding: const EdgeInsets.all(20.0),
@@ -142,7 +144,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           width: 5.0,
                         ),
                         Expanded(
-                          child: RoundedCar(
+                          child: RoundedCard(
                             backgroundColor: kDefaultBoxColor,
                             child: Padding(
                               padding: const EdgeInsets.all(20.0),
@@ -170,19 +172,20 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-          Material(
-            color: kDefaultButtonColor,
-            child: InkWell(
-              onTap: () {},
-              child: const SizedBox(
-                height: kToolbarHeight * 1.10,
-                child: Center(
-                  child: Text(
-                    'CALCULATE YOUR BMI',
-                    style: TextStyle(
-                      fontSize: 18.0,
-                    ),
-                  ),
+          BottomButton(
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ResultScreen(),
+                ),
+              );
+            },
+            child: const Center(
+              child: Text(
+                'CALCULATE YOUR BMI',
+                style: TextStyle(
+                  fontSize: 18.0,
                 ),
               ),
             ),

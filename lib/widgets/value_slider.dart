@@ -23,9 +23,11 @@ class ValueSlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Expanded(
+          flex: 3,
           child: Column(
             children: [
               Text(
@@ -35,50 +37,56 @@ class ValueSlider extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.baseline,
-                textBaseline: TextBaseline.alphabetic,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    initialValue.toString(),
-                    style: const TextStyle(
-                      fontSize: kLargeFontSize,
-                      fontWeight: FontWeight.w900,
+              Expanded(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      initialValue.toString(),
+                      style: const TextStyle(
+                        fontSize: kLargeFontSize,
+                        fontWeight: FontWeight.w900,
+                      ),
                     ),
-                  ),
-                  const SizedBox(
-                    width: 2.0,
-                  ),
-                  const Text(
-                    'cm',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: kUnselectedLabelColor,
+                    const SizedBox(
+                      width: 2.0,
                     ),
-                  )
-                ],
+                    const Text(
+                      'cm',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: kUnselectedLabelColor,
+                      ),
+                    )
+                  ],
+                ),
               ),
             ],
           ),
         ),
-        SliderTheme(
-          data: SliderThemeData(
-            trackHeight: 2.0,
-            thumbColor: kDefaultButtonColor,
-            overlayColor: kDefaultButtonColor.withOpacity(0.15),
-            activeTrackColor: kLabelColor,
-            inactiveTrackColor: kUnselectedLabelColor,
-            thumbShape: const RoundSliderThumbShape(
-              enabledThumbRadius: 14.0,
+        Expanded(
+          flex: 2,
+          child: SliderTheme(
+            data: SliderThemeData(
+              // rangeThumbShape: RangeSliderThumbShape(),
+              trackHeight: 2.0,
+              thumbColor: kDefaultButtonColor,
+              overlayColor: kDefaultButtonColor.withOpacity(0.15),
+              activeTrackColor: kLabelColor,
+              inactiveTrackColor: kUnselectedLabelColor,
+              // thumbShape: const RoundSliderThumbShape(
+              //   enabledThumbRadius: 14.0,
+              // ),
             ),
-          ),
-          child: Slider(
-            min: min,
-            max: max,
-            value: initialValue.toDouble(),
-            onChanged: onChanged,
+            child: Slider(
+              min: min,
+              max: max,
+              value: initialValue.toDouble(),
+              onChanged: onChanged,
+            ),
           ),
         ),
       ],

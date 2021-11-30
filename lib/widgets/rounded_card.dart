@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class RoundedCar extends StatelessWidget {
+class RoundedCard extends StatelessWidget {
   final VoidCallback? onTap;
   final Widget? child;
   final Color? backgroundColor;
   final EdgeInsetsGeometry? margin;
 
-  const RoundedCar(
+  const RoundedCard(
       {Key? key, this.child, this.backgroundColor, this.onTap, this.margin})
       : super(key: key);
 
@@ -20,8 +20,8 @@ class RoundedCar extends StatelessWidget {
           color: backgroundColor,
         ),
         margin: margin,
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
+        // height: MediaQuery.of(context).size.height,
+        // width: MediaQuery.of(context).size.width,
         child: child,
       ),
     );

@@ -19,37 +19,36 @@ class ValueSelector extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       // direction: Axis.vertical,
-      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        Column(
+          children: [
+            Text(
+              title,
+              style: const TextStyle(
+                color: kUnselectedLabelColor,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            Text(
+              initialValue.toString(),
+              style: const TextStyle(
+                fontSize: kLargeFontSize,
+                fontWeight: FontWeight.w900,
+              ),
+            ),
+          ],
+        ),
         Expanded(
-          child: Column(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Text(
-                title,
-                style: const TextStyle(
-                  color: kUnselectedLabelColor,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              Text(
-                initialValue.toString(),
-                style: const TextStyle(
-                  fontSize: kLargeFontSize,
-                  fontWeight: FontWeight.w900,
-                ),
-              ),
+              _buildButton(onPressed: onDecrease, iconData: Icons.remove),
+              _buildButton(onPressed: onIncrease, iconData: Icons.add),
             ],
           ),
-        ),
-        Row(
-          children: [
-            Expanded(
-                child: _buildButton(
-                    onPressed: onDecrease, iconData: Icons.remove)),
-            Expanded(
-                child:
-                    _buildButton(onPressed: onIncrease, iconData: Icons.add)),
-          ],
         ),
       ],
     );
@@ -65,7 +64,8 @@ class ValueSelector extends StatelessWidget {
       elevation: 0.0,
       fillColor: kIconButtonColor,
       child: Icon(iconData),
-      padding: const EdgeInsets.all(12.0),
+      constraints: BoxConstraints.tight(const Size.square(46.0)),
+      // padding: const EdgeInsets.all(10.0),
       shape: const CircleBorder(),
     );
   }
