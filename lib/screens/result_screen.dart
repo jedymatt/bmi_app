@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:bmi_app/core/constants.dart';
 import 'package:bmi_app/screens/home_screen.dart';
 import 'package:bmi_app/widgets/bottom_button.dart';
@@ -101,12 +99,12 @@ class ResultScreen extends StatelessWidget {
                             ),
                             OutlinedButton(
                               style: OutlinedButton.styleFrom(
-                                backgroundColor: Color(0xff181a2e),
+                                backgroundColor: const Color(0xff181a2e),
                                 side: BorderSide.none,
                                 padding: const EdgeInsets.all(20.0),
                               ),
                               onPressed: () {},
-                              child: Text(
+                              child: const Text(
                                 'SAVE RESULT',
                                 style: TextStyle(color: kLabelColor),
                               ),
